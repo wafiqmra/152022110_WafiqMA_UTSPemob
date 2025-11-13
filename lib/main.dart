@@ -67,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
             // Display the image in a circular shape
             ClipOval(
               child: Image.asset(
-                'assets/images/profile.jpg', // Replace with your image path
+                'assets/images/profile1.jpg', // Replace with your image path
                 width: 150,
                 height: 150,
                 fit: BoxFit.cover,
@@ -76,7 +76,7 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 20),
             // Display name
             const Text(
-              'Wafiq Mariatul Azizah', // Replace with your name
+              'Alonza Nara Shadrika', // Replace with your name
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 8),
             // Display phone number
             const Text(
-              '152022110', // Replace with your phone number
+              '152022097', // Replace with your phone number
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black,

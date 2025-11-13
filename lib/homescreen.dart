@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:currency_converter/calculator.dart';
 import 'package:currency_converter/currencyconverter.dart';
-import 'package:currency_converter/login.dart'; // Import your login page here
-import 'package:currency_converter/profile.dart'; // Import your Profile page here
+import 'package:currency_converter/login.dart';
+import 'package:currency_converter/profile.dart';
 import 'main.dart';
+
+// >>> Tambahkan import ini kalau nanti ada halaman News
+import 'package:currency_converter/news.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Set the background of the body to white
+      backgroundColor: Colors.white,
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -25,13 +28,13 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color(0xFFB9EA60), // Light Green
-                    Color(0xFFFAE880), // Light Yellow
-                    Color(0xFF2CC65A), // Green
+                    Color(0xFFB9EA60),
+                    Color(0xFFFAE880),
+                    Color(0xFF2CC65A),
                   ],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  stops: [0.1, 0.5, 0.9], // Adjusting stops to make the gradient faster
+                  stops: [0.1, 0.5, 0.9],
                 ),
               ),
               child: Text(
@@ -71,22 +74,22 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
-            fontWeight: FontWeight.bold, // Making the text bold
+            fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: Colors.transparent, // Transparent background for the AppBar
+        backgroundColor: Colors.transparent,
         elevation: 0,
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                Color(0xFFB9EA60), // Light Green
-                Color(0xFFFAE880), // Light Yellow
-                Color(0xFF2CC65A), // Green
+                Color(0xFFB9EA60),
+                Color(0xFFFAE880),
+                Color(0xFF2CC65A),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              stops: [0.1, 0.5, 0.9], // Adjusting stops to make the gradient faster
+              stops: [0.1, 0.5, 0.9],
             ),
           ),
         ),
@@ -113,10 +116,10 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.indigo,
                     ),
                     onPressed: () {
-                      // Navigate to LoginPage on logout
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()),
                       );
                     },
                   ),
@@ -141,6 +144,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(height: 16),
+
+                    // ====== 3 CARD DALAM 2 ROW =======
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -149,7 +154,8 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const CurrencyConverterPage()),
+                                  builder: (context) =>
+                                      const CurrencyConverterPage()),
                             );
                           },
                           title: 'CURRENCY CONVERTER',
@@ -166,6 +172,24 @@ class _HomePageState extends State<HomePage> {
                           },
                           title: 'CALCULATOR',
                           icon: 'assets/images/calculator.png',
+                          fontColor: const Color.fromARGB(255, 63, 37, 37),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _cardMenu(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NewsPage()),
+                            );
+                          },
+                          title: 'NEWS',
+                          icon: 'assets/images/news.png', // Tambahkan icon di folder assets
                           fontColor: const Color.fromARGB(255, 63, 37, 37),
                         ),
                       ],
@@ -194,7 +218,7 @@ class _HomePageState extends State<HomePage> {
         width: 156,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.zero, // Removed border radius
+          borderRadius: BorderRadius.zero,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.3),
